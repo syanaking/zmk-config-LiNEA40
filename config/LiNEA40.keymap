@@ -168,7 +168,7 @@
 
 &msc_input_listener {
     speed_up {
-        layers = <L_JIS_FN L_IPAD_FN L_US_FN>;
+        layers = <2 5 8>;
         input-processors = <&zip_wheel_scaler 3 1>; // スクロール3倍速
     };
 };

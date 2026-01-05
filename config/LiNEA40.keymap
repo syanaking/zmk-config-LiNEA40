@@ -169,18 +169,17 @@
 &msc_input_listener {
     speed_up {
         layers = <2 5 8>;
-        input-processors = <&zip_wheel_scaler 3 1>; // スクロール3倍速
+        input-processors = <&zip_wheel_scaler 2 1>; // スクロール3倍速
     };
 };
 
 &trackball_listener {
+    // トラックボール全体にX方向反転を適用（Yは通常）
+    input-processors = <&zip_xy_transform INPUT_TRANSFORM_X_INVERT>;
     scroller {
+        // overlayのscroll-layersと合わせてFn系でスクロール
         layers = <1 4 7>;
-        input-processors =
-            <&zip_xy_transform INPUT_TRANSFORM_Y_INVERT>,
-            // <&zip_xy_transform INPUT_TRANSFORM_X_INVERT>,
-            // スクロール方向を逆転
-            <&zip_xy_to_scroll_mapper>;
+        input-processors = <&zip_xy_to_scroll_mapper>;
     };
 };
 

@@ -176,10 +176,12 @@
 
 &trackball_listener {
     scroller {
-        // overlayのscroll-layersと合わせてFn系でスクロール
-        layers = <1 4 7>;
-        // 反転はドライバ側(right_conf)で管理するため、ここではマッピングのみ
-        input-processors = <&zip_xy_to_scroll_mapper>;
+        // すべてのレイヤーでスクロール変換を有効化（反転を確実に適用）
+        layers = <0 1 2 3 4 5 6 7 8>;
+        // スクロール時のみX方向を反転、Yは通常
+        input-processors =
+            <&zip_xy_transform INPUT_TRANSFORM_X_INVERT>,
+            <&zip_xy_to_scroll_mapper>;
     };
 };
 

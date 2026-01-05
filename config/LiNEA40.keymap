@@ -169,7 +169,8 @@
 &msc_input_listener {
     speed_up {
         layers = <1 4 7>;
-        input-processors = <&zip_wheel_scaler 0.5 1>; // スクロール0.5倍速
+        // スクロールを1/2倍（細かく）にする
+        input-processors = <&zip_wheel_scaler 1 2>;
     };
 };
 

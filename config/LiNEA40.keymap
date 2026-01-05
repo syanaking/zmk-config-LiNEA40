@@ -174,12 +174,14 @@
 };
 
 &trackball_listener {
-    // トラックボール全体にX方向反転を適用（Yは通常）
-    input-processors = <&zip_xy_transform INPUT_TRANSFORM_X_INVERT>;
+    // カーソル移動には反転をかけない（通常向き）
     scroller {
         // overlayのscroll-layersと合わせてFn系でスクロール
         layers = <1 4 7>;
-        input-processors = <&zip_xy_to_scroll_mapper>;
+        // スクロール時のみX方向を反転、Yは通常
+        input-processors =
+            <&zip_xy_transform INPUT_TRANSFORM_X_INVERT>,
+            <&zip_xy_to_scroll_mapper>;
     };
 };
 

@@ -186,7 +186,7 @@
 
 / {
     behaviors {
-        re_kp: re_kp_beh {
+        re_kp_beh: re_kp_beh {
             compatible = "zmk,behavior-sensor-rotate-var";
             #sensor-binding-cells = <2>;
             bindings = <&kp>, <&kp>;
@@ -199,14 +199,14 @@
             tap-ms = <20>;
         };
 
-        encoder_msc: sensor_rotate_msc {
+        encoder_msc: encoder_msc_beh {
             compatible = "zmk,behavior-sensor-rotate-var";
             #sensor-binding-cells = <2>;
             bindings = <&msc>, <&msc>;
             tap-ms = <20>;
         };
 
-        encoder_kp: encoder_kp_beh {
+        encoder_kp_beh: encoder_kp_beh {
             compatible = "zmk,behavior-sensor-rotate-var";
             #sensor-binding-cells = <2>;
             bindings = <&kp>, <&kp>;

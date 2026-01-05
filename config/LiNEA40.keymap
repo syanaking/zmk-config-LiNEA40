@@ -168,20 +168,17 @@
 
 &msc_input_listener {
     speed_up {
-        layers = <2 5 8>;
-        input-processors = <&zip_wheel_scaler 2 1>; // スクロール3倍速
+        layers = <1 4 7>;
+        input-processors = <&zip_wheel_scaler 0.5 1>; // スクロール0.5倍速
     };
 };
 
 &trackball_listener {
-    // カーソル移動には反転をかけない（通常向き）
     scroller {
         // overlayのscroll-layersと合わせてFn系でスクロール
         layers = <1 4 7>;
-        // スクロール時のみX方向を反転、Yは通常
-        input-processors =
-            <&zip_xy_transform INPUT_TRANSFORM_X_INVERT>,
-            <&zip_xy_to_scroll_mapper>;
+        // 反転はドライバ側(right_conf)で管理するため、ここではマッピングのみ
+        input-processors = <&zip_xy_to_scroll_mapper>;
     };
 };
 
